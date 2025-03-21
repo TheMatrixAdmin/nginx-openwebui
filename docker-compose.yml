@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "443:443"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - open-webui
+
+  open-webui:
+    container_name: open-webui
+    image: ghcr.io/open-webui/open-webui:ollama
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ollama:/root/.ollama
+      - open-webui:/app/backend/data
+    environment:
+      - OLLAMA_HOST=http://host.docker.internal:11434
+
+volumes:
+  ollama:
+  open-webui:
