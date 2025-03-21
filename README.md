@@ -14,7 +14,7 @@ This repository provides a **ready-to-use** setup for deploying OpenWebUI with N
 To **automatically install everything**, simply run:
 
 ```bash
-git clone https://github.com/Curi0sIT/nginx-https-openwebui-ollama.git
+git clone https://github.com/Curi0usIT/nginx-openwebui.git
 cd nginx-https-openwebui-ollama
 chmod +x setup.sh
 ./setup.sh
@@ -27,7 +27,7 @@ Then, access OpenWebUI at:
 If you already have Docker installed, you can simply:
 
 ```bash
-git clone https://github.com/Curi0sIT/nginx-https-openwebui-ollama.git
+git clone https://github.com/Curi0usIT/nginx-openwebui.git
 cd nginx-https-openwebui-ollama
 docker compose up -d
 ```
