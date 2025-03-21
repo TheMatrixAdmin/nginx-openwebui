@@ -15,7 +15,7 @@ To **automatically install everything**, simply run:
 
 ```bash
 git clone https://github.com/Curi0usIT/nginx-openwebui.git
-cd nginx-https-openwebui-ollama
+cd nginx-openwebui
 chmod +x setup.sh
 ./setup.sh
 ```
@@ -28,6 +28,6 @@ If you already have Docker installed, you can simply:
 
 ```bash
 git clone https://github.com/Curi0usIT/nginx-openwebui.git
-cd nginx-https-openwebui-ollama
+cd nginx-openwebui
 docker compose up -d
 ```
