@@ -50,7 +50,7 @@ sudo apt-get update
 
 # Install NVIDIA Container Toolkit
 sudo apt-get install -y nvidia-container-toolkit
-This installation allows the use of NVIDIA GPUs in Docker containers, optimizing performance for GPU-accelerated applications.
 ```
 
+This installation allows the use of NVIDIA GPUs in Docker containers, optimizing performance for GPU-accelerated applications.
 Source: [NVIDIA Official Documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
