@@ -11,6 +11,7 @@ This repository provides a **ready-to-use** setup for deploying OpenWebUI with N
 ✔ **Self-signed SSL certificate** generation
 
 ✔ Secure **HTTPS access** to OpenWebUI from your LAN
+
 ---
 
 ## 🔧 Installation (Full Setup)
