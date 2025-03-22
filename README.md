@@ -3,11 +3,14 @@
 This repository provides a **ready-to-use** setup for deploying OpenWebUI with Nginx as a reverse proxy and Ollama for AI model serving, on Debian based system.
 
 ## Features
-✔ Automated installation with `setup.sh`
-✔ **Docker Compose** full bundle with Nginx + SSL + OpenWebUI + Ollama
-✔ **Self-signed SSL certificate** generation  
-✔ Secure **HTTPS access** to OpenWebUI from your LAN 
 
+✔ Automated installation with `setup.sh`
+
+✔ **Docker Compose** full bundle with Nginx + SSL + OpenWebUI + Ollama
+
+✔ **Self-signed SSL certificate** generation
+
+✔ Secure **HTTPS access** to OpenWebUI from your LAN
 ---
 
 ## 🔧 Installation (Full Setup)
