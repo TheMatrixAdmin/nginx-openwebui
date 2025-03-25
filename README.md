@@ -12,6 +12,8 @@ This repository provides a **ready-to-use** setup for deploying OpenWebUI with N
 
 ✔ Secure **HTTPS access** to OpenWebUI from your LAN
 
+✔ Optimized for **GPUs**
+
 ---
 
 ## 🔧 Installation (Full Setup)
