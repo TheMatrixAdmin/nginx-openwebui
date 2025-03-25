@@ -62,13 +62,16 @@ server {
     ssl_protocols TLSv1.2 TLSv1.3;
 
     location / {
-        proxy_pass http://open-webui:3000;
+        proxy_pass http://open-webui:8080;
         proxy_set_header Host \$host;
         proxy_set_header X-Real-IP \$remote_addr;
         proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto \$scheme;
 
         proxy_buffering off;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade \$http_upgrade;
+        proxy_set_header Connection "upgrade";
     }
 }
 EOL
@@ -90,19 +93,38 @@ services:
       - ./ssl:/etc/nginx/ssl
     depends_on:
       - open-webui
+      
+  ollama:
+    container_name: ollama
+    image: ollama/ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - gpu
 
   open-webui:
     container_name: open-webui
     image: ghcr.io/open-webui/open-webui:ollama
     restart: always
     ports:
-      - "3000:3000"
+      - "3000:8080"
     volumes:
       - ollama:/root/.ollama
       - open-webui:/app/backend/data
     environment:
-      - OLLAMA_HOST=http://host.docker.internal:11434
-
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+    - ollama
+    
 volumes:
   ollama:
   open-webui:
