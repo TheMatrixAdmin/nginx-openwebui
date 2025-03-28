@@ -7,7 +7,7 @@
 echo "-----------------------------------"
 echo "  Curi0usIT - OpenWebUI Installer"
 echo "-----------------------------------"
-echo "GitHub: https://github.com/CuriousIT"
+echo "GitHub: https://github.com/Curi0usIT"
 echo "-----------------------------------"
 
 # ----- Prompt for server details -----
