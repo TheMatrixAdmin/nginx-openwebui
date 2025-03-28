@@ -45,9 +45,13 @@ Navigate to Admin Panel > Settings > Connections.
 
 Under "Manage Ollama API Connections", replace "localhost" with your server's IP address.
 
+<a href="https://ibb.co/hr3JnWK"><img src="https://i.ibb.co/6Gj7pP4/Capture-d-cran-du-2025-03-28-22-09-20.png" alt="Capture-d-cran-du-2025-03-28-22-09-20" border="0"></a>
+
 4️⃣ Download Models
 
 You can now pull models directly from Ollama via the "Models" tab.
+
+<a href="https://ibb.co/bR7gGt0z"><img src="https://i.ibb.co/zHNhtdMG/Capture-d-cran-du-2025-03-28-22-56-36.png" alt="Capture-d-cran-du-2025-03-28-22-56-36" border="0"></a>
 
 Alternatively, you can manually pull models inside the Docker container using:
 
@@ -58,10 +62,6 @@ docker exec -it ollama ollama pull <your-model>
 After downloading, refresh OpenWebUI to use the new model.
 
 ✅ Your OpenWebUI is now ready to use with Ollama! 🚀
-
-<a href="https://ibb.co/hr3JnWK"><img src="https://i.ibb.co/6Gj7pP4/Capture-d-cran-du-2025-03-28-22-09-20.png" alt="Capture-d-cran-du-2025-03-28-22-09-20" border="0"></a>
-
-
 
 ## 🛠 Manual Setup (Docker Only)
 If you already have Docker installed, you can simply:
