@@ -2,7 +2,7 @@
 
 This repository provides a **ready-to-use** setup for deploying OpenWebUI with Nginx as a reverse proxy and Ollama for AI model serving, on Debian based system.
 
-<a href="https://ibb.co/zWzMRk07"><img src="https://i.ibb.co/cKjBFm7C/curi0us-IT-openwebui-ollama-nginx-ssl-automated.png" alt="curi0us-IT-openwebui-ollama-nginx-ssl-automated" border="0"></a>
+<a href="https://ibb.co/DP22RRWH"><img src="https://i.ibb.co/rKrrww0R/curi0us-IT-openwebui-ollama-nginx-ssl-automated.png" alt="curi0us-IT-openwebui-ollama-nginx-ssl-automated" border="0"></a>
 
 ## Features
 
