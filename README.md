@@ -95,3 +95,40 @@ sudo apt-get install -y nvidia-container-toolkit
 This installation allows the use of NVIDIA GPUs in Docker containers, optimizing performance for GPU-accelerated applications.
 
 Source: [NVIDIA Official Documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+
+## ⚡ Enable Multi-GPU Support
+By default, Ollama may not utilize multiple GPUs efficiently. To ensure both GPUs are used:
+
+1️⃣ Modify our docker-compose.yml to specify both GPUs:
+
+```bash
+  ollama:
+    container_name: ollama
+    image: ollama/ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 2  # Ensure both GPUs are utilized
+              capabilities: [gpu]
+    environment:
+      - CUDA_VISIBLE_DEVICES=0,1  # Enable both GPUs
+```
+
+2️⃣ Restart your containers (if you have already launched the installation before making the modification to the docker-compose file):
+
+```bash
+docker compose down && docker compose up -d
+```
+
+3️⃣ Verify GPU usage:
+
+```bash
+docker exec -it ollama nvidia-smi
+```
