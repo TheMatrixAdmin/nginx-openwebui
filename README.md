@@ -2,6 +2,8 @@
 
 This repository provides a **ready-to-use** setup for deploying OpenWebUI with Nginx as a reverse proxy and Ollama for AI model serving, on Debian based system.
 
+<a href="https://ibb.co/zWzMRk07"><img src="https://i.ibb.co/cKjBFm7C/curi0us-IT-openwebui-ollama-nginx-ssl-automated.png" alt="curi0us-IT-openwebui-ollama-nginx-ssl-automated" border="0"></a>
+
 ## Features
 
 ✔ Automated installation with `setup.sh`
@@ -26,8 +28,40 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-Then, access OpenWebUI at:
-➡ https://your-server-ip
+🛠️ Accessing OpenWebUI & Configuring Ollama
+Once your setup is complete, follow these steps to access and configure OpenWebUI:
+
+1️⃣ Open OpenWebUI
+
+Visit https://<your-server-ip> in your browser.
+
+2️⃣ Create an Account
+
+Register and log in to your OpenWebUI instance.
+
+3️⃣ Update Ollama API Connection
+
+Navigate to Admin Panel > Settings > Connections.
+
+Under "Manage Ollama API Connections", replace "localhost" with your server's IP address.
+
+4️⃣ Download Models
+
+You can now pull models directly from Ollama via the "Models" tab.
+
+Alternatively, you can manually pull models inside the Docker container using:
+
+```bash
+docker exec -it ollama ollama pull <your-model>
+```
+
+After downloading, refresh OpenWebUI to use the new model.
+
+✅ Your OpenWebUI is now ready to use with Ollama! 🚀
+
+<a href="https://ibb.co/hr3JnWK"><img src="https://i.ibb.co/6Gj7pP4/Capture-d-cran-du-2025-03-28-22-09-20.png" alt="Capture-d-cran-du-2025-03-28-22-09-20" border="0"></a>
+
+
 
 ## 🛠 Manual Setup (Docker Only)
 If you already have Docker installed, you can simply:
