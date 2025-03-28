@@ -28,12 +28,12 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-🛠️ Accessing OpenWebUI & Configuring Ollama
+## 🛠️ Accessing OpenWebUI & Configuring Ollama
 Once your setup is complete, follow these steps to access and configure OpenWebUI:
 
 1️⃣ Open OpenWebUI
 
-Visit https://<your-server-ip> in your browser.
+Visit https://< your-server-ip > in your browser.
 
 2️⃣ Create an Account
 
@@ -93,4 +93,5 @@ sudo apt-get install -y nvidia-container-toolkit
 ```
 
 This installation allows the use of NVIDIA GPUs in Docker containers, optimizing performance for GPU-accelerated applications.
+
 Source: [NVIDIA Official Documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
