@@ -1,11 +1,25 @@
 #!/bin/bash
 
 # -----------------------------
-#  CuriousIT - OpenWebUI Setup
+#
+# Copyright (c) 2025 Curi0usIT
+# Author: Curi0usIT
+# License: MIT
+# https://github.com/Curi0usIT/nginx-openwebui/blob/main/LICENSE
+#
 # -----------------------------
 
 echo "-----------------------------------"
-echo "  Curi0usIT - OpenWebUI Installer"
+cat <<"EOF"
+_________              ._________               .______________
+\_   ___ \ __ _________|__\   _  \  __ __  _____|   \__    ___/
+/    \  \/|  |  \_  __ \  /  /_\  \|  |  \/  ___/   | |    |   
+\     \___|  |  /|  | \/  \  \_/   \  |  /\___ \|   | |    |   
+ \______  /____/ |__|  |__|\_____  /____//____  >___| |____|   
+        \/                       \/           \/                
+EOF
+echo "-----------------------------------"
+echo "  Curi0usIT - Nginx + OpenWebUI + Ollama Bundle Installer"
 echo "-----------------------------------"
 echo "GitHub: https://github.com/Curi0usIT"
 echo "-----------------------------------"
@@ -39,6 +53,33 @@ sudo apt-get update
 # ----- Install Docker & Docker Compose -----
 echo "Installing Docker Engine and Docker Compose..."
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# ----- Prompt for NVIDIA Toolkit Installation -----
+read -p "Do you want to install NVIDIA Container Toolkit? (Recommended for NVIDIA GPUs) [y/N]: " install_nvidia
+if [[ "$install_nvidia" == "y" || "$install_nvidia" == "Y" ]]; then
+  echo "Installing NVIDIA Container Toolkit..."
+  curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+  curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+  sudo apt-get update
+  sudo apt-get install -y nvidia-container-toolkit
+  echo "NVIDIA Container Toolkit installed successfully!"
+fi
+
+# ----- Prompt for number of GPUs -----
+read -p "How many GPUs do you want to use? (1 or 2): " GPU_COUNT
+if [[ "$GPU_COUNT" == "2" ]]; then
+  GPU_DEVICES="- driver: nvidia
+              count: 2
+              capabilities: [gpu]"
+  GPU_ENV="- CUDA_VISIBLE_DEVICES=0,1"
+else
+  GPU_DEVICES="- driver: nvidia
+              count: 1
+              capabilities: [gpu]"
+  GPU_ENV="- CUDA_VISIBLE_DEVICES=0"
+fi
 
 # ----- Create necessary directories -----
 echo "Creating necessary directories..."
@@ -106,10 +147,7 @@ services:
       resources:
         reservations:
           devices:
-            - driver: nvidia
-              count: 1
-              capabilities:
-                - gpu
+$GPU_DEVICES
 
   open-webui:
     container_name: open-webui
@@ -122,6 +160,7 @@ services:
       - open-webui:/app/backend/data
     environment:
       - OLLAMA_HOST=http://ollama:11434
+$GPU_ENV
     depends_on:
     - ollama
     
