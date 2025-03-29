@@ -4,17 +4,33 @@ This repository provides a **ready-to-use** setup for deploying OpenWebUI with N
 
 <a href="https://ibb.co/DP22RRWH"><img src="https://i.ibb.co/rKrrww0R/curi0us-IT-openwebui-ollama-nginx-ssl-automated.png" alt="curi0us-IT-openwebui-ollama-nginx-ssl-automated" border="0"></a>
 
-## Features
+## 📦 Features
 
 ✔ Automated installation with `setup.sh`
 
-✔ **Docker Compose** full bundle with Nginx + SSL + OpenWebUI + Ollama
+✔ **Docker Compose** full bundle with Nginx + OpenWebUI + Ollama
 
 ✔ **Self-signed SSL certificate** generation
 
 ✔ Secure **HTTPS access** to OpenWebUI from your LAN
 
 ✔ Optimized for **GPUs**
+
+---
+
+## ✅ Requirements
+
+For the Automatic Setup (setup.sh):
+
+- **A Debian-based Linux distribution**: Debian, Ubuntu, etc.
+- **NVIDIA GPU**: The script will prompt for installation
+- **Dependencies**: bash should be installed & sudo privileges for package installation
+
+For the Manual Installation:
+
+- **A Debian-based Linux distribution**: Debian, Ubuntu, etc.
+- **NVIDIA GPU**: If available, install the NVIDIA Container Toolkit manually (On Step 1)
+- **Docker Engine & Docker Compose**: Must be installed manually
 
 ---
 
@@ -28,7 +44,7 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-## 🛠️ Accessing OpenWebUI & Configuring Ollama
+**🛠️ Accessing OpenWebUI & Configuring Ollama**
 Once your setup is complete, follow these steps to access and configure OpenWebUI:
 
 1️⃣ Open OpenWebUI
@@ -64,17 +80,9 @@ After downloading, refresh OpenWebUI to use the new model.
 ✅ Your OpenWebUI is now ready to use with Ollama! 🚀
 
 ## 🛠 Manual Setup (Docker Only)
-If you already have Docker installed, you can simply:
 
-```bash
-git clone https://github.com/Curi0usIT/nginx-openwebui.git
-cd nginx-openwebui
-mkdir ssl
-openssl req -x509 -nodes -days 365 -newkey rsa:2048
-docker compose up -d
-```
+**1️⃣ Step 1 : Install the NVIDIA Container Toolkit**
 
-## Important: NVIDIA Container Toolkit Installation
 To use NVIDIA GPUs with Docker, including SLI configurations, ensure you install the NVIDIA Container Toolkit. This toolkit enables Docker to access NVIDIA GPU capabilities for applications requiring graphics acceleration.
 
 Installation (Debian/Ubuntu)
@@ -96,10 +104,11 @@ This installation allows the use of NVIDIA GPUs in Docker containers, optimizing
 
 Source: [NVIDIA Official Documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 
-## ⚡ Enable Multi-GPU Support
+**2️⃣ Step 2 (Optional) : Enable Multi-GPU Support**
+
 By default, Ollama may not utilize multiple GPUs efficiently. To ensure both GPUs are used:
 
-1️⃣ Modify our docker-compose.yml to specify both GPUs:
+- Modify our docker-compose.yml to specify both GPUs:
 
 ```bash
   ollama:
@@ -121,14 +130,39 @@ By default, Ollama may not utilize multiple GPUs efficiently. To ensure both GPU
       - CUDA_VISIBLE_DEVICES=0,1  # Enable both GPUs
 ```
 
-2️⃣ Restart your containers (if you have already launched the installation before making the modification to the docker-compose yml):
+- Restart your containers (if you have already launched the installation before making the modification to the docker-compose yml):
 
 ```bash
 docker compose down && docker compose up -d
 ```
 
-3️⃣ Verify GPU usage:
+- Verify GPU usage:
 
 ```bash
 docker exec -it ollama nvidia-smi
+```
+
+**3️⃣ Step 3 : Install via Docker Compose**
+
+If you already have Docker installed, you can simply:
+
+```bash
+git clone https://github.com/Curi0usIT/nginx-openwebui.git
+cd nginx-openwebui
+mkdir ssl
+openssl req -x509 -nodes -days 365 -newkey rsa:2048
+```
+
+*Make sure to put your server's IP before in the conf.d/open-webui.conf file in the repository*
+
+```bash
+server {
+    listen 443 ssl;
+    server_name YOUR_DOMAIN_OR_IP; #Here
+    ...
+```
+
+Then :
+```bash
+docker compose up -d
 ```
