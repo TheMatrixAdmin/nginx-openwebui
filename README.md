@@ -43,19 +43,17 @@ cd nginx-openwebui
 chmod +x setup.sh
 ./setup.sh
 ```
-
-**🛠️ Accessing OpenWebUI & Configuring Ollama**
 Once your setup is complete, follow these steps to access and configure OpenWebUI:
 
-1️⃣ Open OpenWebUI
+1️⃣ **Open OpenWebUI**
 
 Visit https://< your-server-ip > in your browser.
 
-2️⃣ Create an Account
+2️⃣ **Create an Account**
 
 Register and log in to your OpenWebUI instance.
 
-3️⃣ Update Ollama API Connection
+3️⃣ **Update Ollama API Connection**
 
 Navigate to Admin Panel > Settings > Connections.
 
@@ -63,7 +61,7 @@ Under "Manage Ollama API Connections", replace "localhost" with your server's IP
 
 <a href="https://ibb.co/hr3JnWK"><img src="https://i.ibb.co/6Gj7pP4/Capture-d-cran-du-2025-03-28-22-09-20.png" alt="Capture-d-cran-du-2025-03-28-22-09-20" border="0"></a>
 
-4️⃣ Download Models
+4️⃣ **Download Models**
 
 You can now pull models directly from Ollama via the "Models" tab.
 
@@ -130,18 +128,6 @@ By default, Ollama may not utilize multiple GPUs efficiently. To ensure both GPU
       - CUDA_VISIBLE_DEVICES=0,1  # Enable both GPUs
 ```
 
-- Restart your containers (if you have already launched the installation before making the modification to the docker-compose yml):
-
-```bash
-docker compose down && docker compose up -d
-```
-
-- Verify GPU usage:
-
-```bash
-docker exec -it ollama nvidia-smi
-```
-
 **3️⃣ Step 3 : Install via Docker Compose**
 
 If you already have Docker installed, you can simply:
@@ -165,4 +151,9 @@ server {
 Then :
 ```bash
 docker compose up -d
+```
+- Verify GPU usage:
+
+```bash
+docker exec -it ollama nvidia-smi
 ```
