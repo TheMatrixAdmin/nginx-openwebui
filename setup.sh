@@ -176,4 +176,5 @@ docker compose up -d
 echo "-------------------------------------------"
 echo " ✅ Installation Complete!"
 echo " Access OpenWebUI at: https://$DOMAIN"
+echo " For any questions or suggestions, please make a request on my github /Curi0usIT"
 echo "-------------------------------------------"
