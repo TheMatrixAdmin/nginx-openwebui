@@ -2,8 +2,6 @@
 
 This repository provides a **ready-to-use** setup for deploying OpenWebUI with Nginx as a reverse proxy and Ollama for AI model serving, on Debian based system.
 
-<a href="https://ibb.co/208p6YhM"><img src="https://i.ibb.co/DPGjbgWM/github-thematrixadmin-ollama-stack.png" alt="github-thematrixadmin-ollama-stack" border="0"></a>
-
 ## 📦 Features
 
 ✔ Automated installation with `setup.sh`
