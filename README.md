@@ -2,7 +2,7 @@
 
 This repository provides a **ready-to-use** setup for deploying OpenWebUI with Nginx as a reverse proxy and Ollama for AI model serving, on Debian based system.
 
-<a href="https://ibb.co/DP22RRWH"><img src="https://i.ibb.co/rKrrww0R/curi0us-IT-openwebui-ollama-nginx-ssl-automated.png" alt="curi0us-IT-openwebui-ollama-nginx-ssl-automated" border="0"></a>
+<a href="https://ibb.co/mFHhx2b5"><img src="https://i.ibb.co/BKgT1Qc2/github-thematrixadmin-ollama-stack.png" alt="github-thematrixadmin-ollama-stack" border="0"></a>
 
 ## 📦 Features
 
@@ -38,7 +38,7 @@ For the Manual Installation:
 To **automatically install everything**, simply run:
 
 ```bash
-git clone https://github.com/Curi0usIT/nginx-openwebui.git
+git clone https://github.com/TheMatrixAdmin/nginx-openwebui.git
 cd nginx-openwebui
 chmod +x setup.sh
 ./setup.sh
@@ -133,7 +133,7 @@ By default, Ollama may not utilize multiple GPUs efficiently. To ensure both GPU
 If you already have Docker installed, you can simply:
 
 ```bash
-git clone https://github.com/Curi0usIT/nginx-openwebui.git
+git clone https://github.com/TheMatrixAdmin/nginx-openwebui.git
 cd nginx-openwebui
 mkdir ssl
 openssl req -x509 -nodes -days 365 -newkey rsa:2048
