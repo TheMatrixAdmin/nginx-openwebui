@@ -2,21 +2,21 @@
 
 # -----------------------------
 #
-# Copyright (c) 2025 Curi0usIT
-# Author: Curi0usIT
+# Copyright (c) 2025 TheMatrixAdmin
+# Author: TheMatrixAdmin
 # License: MIT
-# https://github.com/Curi0usIT/nginx-openwebui/blob/main/LICENSE
+# https://github.com/TheMatrixAdmin/nginx-openwebui/blob/main/LICENSE
 #
 # -----------------------------
 
 echo "-----------------------------------"
 cat <<"EOF"
-_________              ._________               .______________
-\_   ___ \ __ _________|__\   _  \  __ __  _____|   \__    ___/
-/    \  \/|  |  \_  __ \  /  /_\  \|  |  \/  ___/   | |    |   
-\     \___|  |  /|  | \/  \  \_/   \  |  /\___ \|   | |    |   
- \______  /____/ |__|  |__|\_____  /____//____  >___| |____|   
-        \/                       \/           \/                
+___________.__              _____          __         .__          _____       .___      .__        
+\__    ___/|  |__   ____   /     \ _____ _/  |________|__|__  ___ /  _  \    __| _/_____ |__| ____  
+  |    |   |  |  \_/ __ \ /  \ /  \\__  \\   __\_  __ \  \  \/  //  /_\  \  / __ |/     \|  |/    \ 
+  |    |   |   Y  \  ___//    Y    \/ __ \|  |  |  | \/  |>    </    |    \/ /_/ |  Y Y  \  |   |  \
+  |____|   |___|  /\___  >____|__  (____  /__|  |__|  |__/__/\_ \____|__  /\____ |__|_|  /__|___|  /
+                \/     \/        \/     \/                     \/       \/      \/     \/        \/ 
 EOF
 echo "-----------------------------------"
 echo "  Curi0usIT - Nginx + OpenWebUI + Ollama Bundle Installer"
@@ -176,5 +176,5 @@ docker compose up -d
 echo "-------------------------------------------"
 echo " ✅ Installation Complete!"
 echo " Access OpenWebUI at: https://$DOMAIN"
-echo " For any questions or suggestions, please make a request on my github /Curi0usIT"
+echo " For any questions or suggestions, please make a request on my github /TheMatrixAdmin"
 echo "-------------------------------------------"
